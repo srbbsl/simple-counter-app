@@ -1,8 +1,18 @@
 import Head from "next/head";
-
-const userName = "Fire"
+import { useState } from "react";
 
 export default function Home() {
+
+  const [count, setCount] = useState(0);
+
+  const increseaCounter = () => {
+    setCount(count + 1);
+  }
+
+  const decreaseCounter = () => {
+    setCount(count - 1);
+  }
+  
   return (
     <>
       <Head>
@@ -12,7 +22,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <h1 className="heading">hello {userName}</h1>
+        <h1 className="heading">hello {count}</h1>
+        <button onClick={increseaCounter}>Inc Count</button>
+        <button onClick={decreaseCounter}>Dec Count</button>
       </main>
     </>
   );
